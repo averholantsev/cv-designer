@@ -1,0 +1,14 @@
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+a {
+  text-decoration: none;
+}

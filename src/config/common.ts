@@ -1,0 +1,12 @@
+export const APP_HTML_TITLE = process.env.REACT_APP_HUMAN_READABLE_NAME || '';
+export const APP_MAX_WIDTH = 1440;
+export const APP_HEADER_HEIGHT_XS = 32;
+export const APP_HEADER_HEIGHT_SM = 32;
+export const APP_PADDING_MAIN_LR_MD = 3;
+export const APP_PADDING_TOP_XS = APP_HEADER_HEIGHT_XS / 8;
+export const APP_PADDING_TOP_SM = APP_HEADER_HEIGHT_SM / 8;
+export const APP_PADDING_BOTTOM = 4.5;
+export const APP_PADDING_LR_XS = 2.5;
+export const APP_PADDING_LR_SM = 4;
+export const APP_PADDING_LR_MD = 11;
+export const MOMENT_DATE_SHORT = 'DD MMM YYYY';
