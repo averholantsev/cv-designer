@@ -1,6 +1,4 @@
-import { createMuiTheme, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/styles';
-import { APP_PADDING_LR_XS } from 'config/common';
+import { createTheme, Theme } from '@material-ui/core';
 
 export interface IColors {
   darkRed: string;
@@ -120,31 +118,24 @@ interface ICustomShadows {
   cardHover: string;
 }
 
-interface ICustomStyleFunctions {
-  ellipsisAfterLine: (lines: number) => CSSProperties;
-  mobileFullWidth: () => CSSProperties;
-}
-
 /**
  * Расширяем дефолтный интерфейс Theme
  */
-declare module '@material-ui/core/styles/createMuiTheme' {
+declare module '@material-ui/core/styles/createTheme' {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   interface Theme {
     colors: IColors;
     customShadows: ICustomShadows;
-    customStyleFunctions: ICustomStyleFunctions;
   }
-  // allow configuration using `createMuiTheme`
+  // allow configuration using `createTheme`
   // eslint-disable-next-line @typescript-eslint/naming-convention
   interface ThemeOptions {
     colors: IColors;
     customShadows: ICustomShadows;
-    customStyleFunctions: ICustomStyleFunctions;
   }
 }
 
-const theme: Theme = createMuiTheme({
+const theme: Theme = createTheme({
   typography: {
     fontFamily: '"Source Sans Pro", "Arial", sans-serif',
     allVariants: {
@@ -231,19 +222,6 @@ const theme: Theme = createMuiTheme({
   customShadows: {
     card: '0px 0px 16px rgba(0, 0, 0, 0.08), 0px 4px 16px rgba(0, 0, 0, 0.08)',
     cardHover: '0px 7px 22px 0px rgba(0, 0, 0, 0.28)'
-  },
-  customStyleFunctions: {
-    ellipsisAfterLine: (lines: number) => ({
-      overflow: 'hidden',
-      textOverflow: 'ellipsis',
-      display: '-webkit-box',
-      '-webkit-line-clamp': lines,
-      '-webkit-box-orient': 'vertical'
-    }),
-    mobileFullWidth: () => ({
-      margin: theme.spacing(0, -APP_PADDING_LR_XS),
-      width: `calc(100% + ${APP_PADDING_LR_XS * 8 * 2}px)`
-    })
   },
   props: { MuiTextField: { autoComplete: 'off' } }
 });

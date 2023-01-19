@@ -1,9 +1,9 @@
-import { Button, Divider, Grid, makeStyles, Typography } from '@material-ui/core';
+import { Button, Divider, Grid, makeStyles } from '@material-ui/core';
 import { Spacer } from 'components';
 import { Autocomplete, Select, TextField } from 'form';
 import { WorkPlace } from 'models/types/cv';
 import React, { ReactElement } from 'react';
-import { useFieldArray, useFormContext } from 'react-hook-form';
+import { useFieldArray } from 'react-hook-form';
 
 import { monthList, regionTemp } from './tempValues';
 
@@ -28,10 +28,6 @@ const useStyles = makeStyles(({ spacing, typography, colors }) => ({
 
 export const WorkPlase = (): ReactElement => {
   const classes = useStyles();
-
-  const {
-    formState: { errors }
-  } = useFormContext();
 
   const { fields, append, remove } = useFieldArray({
     name: 'workPlace'
@@ -64,11 +60,6 @@ export const WorkPlase = (): ReactElement => {
                 className={classes.yearStart}
                 defaultValue={field.yearStart}
               />
-              {errors ? (
-                <Typography className={classes.errorMessage}>
-                  {errors['workPlace']?.[index]?.['yearStart']?.message}
-                </Typography>
-              ) : null}
             </Grid>
             <Grid item xs={12} sm={6} className={classes.container}>
               <Select
@@ -84,11 +75,6 @@ export const WorkPlase = (): ReactElement => {
                 className={classes.yearStart}
                 defaultValue={field.yearEnd}
               />
-              {errors ? (
-                <Typography className={classes.errorMessage}>
-                  {errors['workPlace']?.[index]?.['yearEnd']?.message}
-                </Typography>
-              ) : null}
             </Grid>
             <Grid item xs={12} sm={6}>
               <TextField

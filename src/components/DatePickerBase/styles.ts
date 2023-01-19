@@ -1,4 +1,4 @@
-import { fade, makeStyles } from '@material-ui/core';
+import { alpha, makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles(({ colors, spacing }) => ({
   required: {
@@ -9,6 +9,6 @@ export const useStyles = makeStyles(({ colors, spacing }) => ({
   icon: {
     margin: spacing(0, 1.5),
     fontSize: 24,
-    fill: fade(colors.black, 0.54)
+    fill: alpha(colors.black, 0.54)
   }
 }));

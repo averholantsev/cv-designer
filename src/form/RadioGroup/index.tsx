@@ -21,13 +21,15 @@ const RadioGroup: FC<IRadioGroupProps> = ({ name, ...props }) => {
     defaultValue: null
   });
 
+  const helperText = errors[name]?.message?.toString();
+
   return (
     <RadioGroupBase
       {...props}
       {...otherProps}
       radioProps={{ ref: ref }}
       name={name}
-      helperText={errors[name]?.message}
+      helperText={helperText}
       error={invalid}
     />
   );

@@ -1,6 +1,6 @@
 # Демо-приложение для формирования CV
 
-Интерфейс для формирования CV. Авторизация, Загрузка картинок на Firebase. Routing, React-Hook-Form, Rematch, MUI.
+Интерфейс для формирования CV. Интеграция с Firebase. Загрузка картинок на Firebase. Routing, React-Hook-Form, Rematch, MUI.
 
 ## Требования к среде
 

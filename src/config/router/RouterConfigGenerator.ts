@@ -73,7 +73,7 @@ export default class RouterConfigGenerator<IGeneratePath = undefined> {
   }
 
   public path(props?: IGeneratePath): string {
-    return generatePath(this._simplePath, props || this._extra.pathProps);
+    return generatePath(this._simplePath, props || this._extra.pathProps || undefined);
   }
 
   private getDefaultExtra(): IExtraProps & { pathProps: IGeneratePath } {
