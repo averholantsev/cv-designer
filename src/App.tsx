@@ -29,7 +29,7 @@ const App: FC = () => {
               horizontal: 'right'
             }}
           >
-            <BrowserRouter>
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
               <Root />
               <Notifier />
               <ModalContextProvider />
