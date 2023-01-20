@@ -1,6 +1,8 @@
 # Демо-приложение для формирования CV
 
-Интерфейс для формирования CV. Интеграция с Firebase. Загрузка картинок на Firebase. Routing, React-Hook-Form, Rematch, MUI.
+Интерфейс для формирования CV. Интеграция с Firebase. Загрузка картинок на Firebase. Routing, React-Hook-Form, Rematch, MUI.  
+
+[Демостенд](https://averholantsev.github.io/cv-designer)
 
 ## Требования к среде
 
