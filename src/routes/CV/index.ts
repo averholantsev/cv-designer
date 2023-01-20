@@ -1,4 +1,6 @@
-export { default as CVCreate } from './CVCreate';
-export { default as CVEdit } from './CVEdit';
-export { default as CV } from './CVList';
-export { default as CVView } from './CVView';
+import { default as Create } from './CVCreate';
+import { default as Edit } from './CVEdit';
+import { default as List } from './CVList';
+import { default as View } from './CVView';
+
+export default { Create, Edit, List, View };

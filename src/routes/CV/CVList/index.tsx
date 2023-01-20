@@ -24,20 +24,25 @@ import Wrapper from 'hoc/Wrapper';
 import moment from 'moment';
 import { useSnackbar } from 'notistack';
 import React, { FC, MouseEvent, useEffect, useState } from 'react';
-import { connect, ConnectedProps } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { CVService } from 'services';
 import { IDispatch, IRootState } from 'store';
 
 import { useStyles } from './styles';
 
-type IConnectedProps = ConnectedProps<typeof withConnect>;
-
-type ICVProps = IConnectedProps;
-
-const CV: FC<ICVProps> = ({ cvsMap, getCVs, loading, resetCVsMap }) => {
+const CV: FC = () => {
   const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();
+  const { cvsMap, loading } = useSelector((s: IRootState) => ({
+    cvsMap: s.cv.cvsMap,
+    loading: s.loading.effects.cv.getCVs
+  }));
+
+  const {
+    cv: { getCVs, resetState: resetCVsMap }
+  } = useDispatch<IDispatch>();
+
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [selectedCVId, setSelectedCVId] = useState('');
 
@@ -137,16 +142,4 @@ const CV: FC<ICVProps> = ({ cvsMap, getCVs, loading, resetCVsMap }) => {
   );
 };
 
-const mapState = (s: IRootState) => ({
-  cvsMap: s.cv.cvsMap,
-  loading: s.loading.effects.cv.getCVs
-});
-
-const mapDispatch = (d: IDispatch) => ({
-  getCVs: d.cv.getCVs,
-  resetCVsMap: d.cv.resetState
-});
-
-const withConnect = connect(mapState, mapDispatch);
-
-export default withConnect(CV);
+export default CV;

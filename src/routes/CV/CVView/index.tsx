@@ -21,7 +21,7 @@ import Wrapper from 'hoc/Wrapper';
 import moment from 'moment';
 import React, { FC } from 'react';
 import { useEffect } from 'react';
-import { connect, ConnectedProps } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { IDispatch, IRootState } from 'store';
 import { _get, getAgeString } from 'utils';
@@ -30,20 +30,27 @@ import { livingCityTemp } from '../shared/containers/BaseInfo/tempValues';
 import { langugesTemp, skillsTemp } from '../shared/containers/EducationInfo/tempValues';
 import { monthList, regionTemp } from '../shared/containers/WorkInfo/tempValues';
 
-type IConnectedProps = ConnectedProps<typeof withConnect>;
-
 const useStyles = makeStyles(() => ({
   paragraph: {
     whiteSpace: 'pre-wrap'
   }
 }));
 
-const CVView: FC<IConnectedProps> = ({ selectedCV, loading, getCVById, resetSelectedCV }) => {
+const CVView: FC = () => {
   const { id } = useParams<IIdParams>();
   const classes = useStyles();
 
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const { selectedCV, loading } = useSelector((s: IRootState) => ({
+    selectedCV: s.cv.selectedCV,
+    loading: s.loading.effects.cv.getCVById
+  }));
+
+  const {
+    cv: { getCVById, resetState: resetSelectedCV }
+  } = useDispatch<IDispatch>();
 
   useEffect(() => {
     if (id) {
@@ -130,7 +137,7 @@ const CVView: FC<IConnectedProps> = ({ selectedCV, loading, getCVById, resetSele
                       {_get(monthList, item.monthStart)} {item.yearStart} -{' '}
                       {item.monthEnd
                         ? _get(monthList, item.monthEnd) + ' ' + item.yearEnd
-                        : 'По настоящее время'}
+                        : 'По н/в'}
                     </Typography>
                   </Box>
                 )}
@@ -248,16 +255,4 @@ const CVView: FC<IConnectedProps> = ({ selectedCV, loading, getCVById, resetSele
   );
 };
 
-const mapState = (s: IRootState) => ({
-  selectedCV: s.cv.selectedCV,
-  loading: s.loading.effects.cv.getCVById
-});
-
-const mapDispatch = (d: IDispatch) => ({
-  getCVById: d.cv.getCVById,
-  resetSelectedCV: d.cv.resetState
-});
-
-const withConnect = connect(mapState, mapDispatch);
-
-export default withConnect(CVView);
+export default CVView;
