@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/cv-designer/static/css/main.9181621b.chunk.css",
+    "main.js": "/cv-designer/static/js/main.1c57c030.chunk.js",
+    "main.js.map": "/cv-designer/static/js/main.1c57c030.chunk.js.map",
+    "runtime-main.js": "/cv-designer/static/js/runtime-main.09a18592.js",
+    "runtime-main.js.map": "/cv-designer/static/js/runtime-main.09a18592.js.map",
+    "static/js/2.020ac15a.chunk.js": "/cv-designer/static/js/2.020ac15a.chunk.js",
+    "static/js/2.020ac15a.chunk.js.map": "/cv-designer/static/js/2.020ac15a.chunk.js.map",
+    "static/js/3.1ec9fbd4.chunk.js": "/cv-designer/static/js/3.1ec9fbd4.chunk.js",
+    "static/js/3.1ec9fbd4.chunk.js.map": "/cv-designer/static/js/3.1ec9fbd4.chunk.js.map",
+    "index.html": "/cv-designer/index.html",
+    "static/css/main.9181621b.chunk.css.map": "/cv-designer/static/css/main.9181621b.chunk.css.map",
+    "static/js/2.020ac15a.chunk.js.LICENSE.txt": "/cv-designer/static/js/2.020ac15a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.09a18592.js",
+    "static/js/2.020ac15a.chunk.js",
+    "static/css/main.9181621b.chunk.css",
+    "static/js/main.1c57c030.chunk.js"
+  ]
+}
