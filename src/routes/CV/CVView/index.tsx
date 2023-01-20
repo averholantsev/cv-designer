@@ -89,7 +89,7 @@ const CVView: FC<IConnectedProps> = ({ selectedCV, loading, getCVById, resetSele
               {base.movingCityId
                 ? 'Предпочтительный город переезда: ' + _get(livingCityTemp, base.movingCityId)
                 : ''}
-              {base.businessTripReady ? ', ' + businessTripReady[base.businessTripReady] : ''}
+              {base.businessTripReady ? businessTripReady[base.businessTripReady] : ''}
             </Typography>
           </Grid>
           <Grid item xs={12}>
