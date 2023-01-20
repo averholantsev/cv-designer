@@ -8,6 +8,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  makeStyles,
   Typography,
   useMediaQuery,
   useTheme
@@ -31,8 +32,15 @@ import { monthList, regionTemp } from '../shared/containers/WorkInfo/tempValues'
 
 type IConnectedProps = ConnectedProps<typeof withConnect>;
 
+const useStyles = makeStyles(() => ({
+  paragraph: {
+    whiteSpace: 'pre-wrap'
+  }
+}));
+
 const CVView: FC<IConnectedProps> = ({ selectedCV, loading, getCVById, resetSelectedCV }) => {
   const { id } = useParams<IIdParams>();
+  const classes = useStyles();
 
   const theme = useTheme();
   const sm = useMediaQuery(theme.breakpoints.down('sm'));
@@ -91,7 +99,7 @@ const CVView: FC<IConnectedProps> = ({ selectedCV, loading, getCVById, resetSele
           </Grid>
         </Grid>
 
-        <Grid item container xs={12} sm={4} justify={sm ? 'center' : 'flex-end'}>
+        <Grid item container xs={12} sm={4} justifyContent={sm ? 'center' : 'flex-end'}>
           <img
             src={avatar?.url || '/imgs/no-photo.jpg'}
             alt="Фото"
@@ -133,7 +141,9 @@ const CVView: FC<IConnectedProps> = ({ selectedCV, loading, getCVById, resetSele
                   )}
                   <Typography variant="subtitle2">{item.site}</Typography>
                   <Typography variant="subtitle2">{item.position}</Typography>
-                  <Typography variant="subtitle2">{item.positionDuties}</Typography>
+                  <Typography variant="subtitle2" className={classes.paragraph}>
+                    {item.positionDuties}
+                  </Typography>
                 </Box>
               </Box>
             ))}
@@ -158,7 +168,9 @@ const CVView: FC<IConnectedProps> = ({ selectedCV, loading, getCVById, resetSele
         {workplace.aboutSelf && (
           <Grid item xs={12}>
             <Typography variant="subtitle1">Обо мне</Typography>
-            <Typography variant="subtitle2">{workplace.aboutSelf}</Typography>
+            <Typography variant="subtitle2" className={classes.paragraph}>
+              {workplace.aboutSelf}
+            </Typography>
           </Grid>
         )}
         <Grid item xs={12}>
