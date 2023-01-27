@@ -39,5 +39,12 @@ npm run test:coverage
 Автоматическое исправление ошибок линтера
 
 ```shell
-lint:fix
+npm run lint:fix
+```
+
+Публикация приложение на Github pages
+
+```shell
+npm run build
+npm run deploy
 ```
