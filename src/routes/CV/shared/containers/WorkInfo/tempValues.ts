@@ -27,7 +27,7 @@ export const monthList = [
 ];
 
 export const regionTemp = [
-  { id: '1wef2112d23', name: 'Москвская область' },
+  { id: '1wef2112d23', name: 'Московская область' },
   { id: '21ed23fd23d', name: 'Ленинградская область' },
   { id: '31e23fd2ds2', name: 'Краснодарский край' },
   { id: '4f2d23d32w2', name: 'Пермский край' }

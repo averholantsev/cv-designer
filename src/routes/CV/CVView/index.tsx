@@ -226,7 +226,7 @@ const CVView: FC = () => {
         </Grid>
         {workplace.portfolio && (
           <Grid item xs={12}>
-            <Typography variant="subtitle1">Потфолио</Typography>
+            <Typography variant="subtitle1">Портфолио</Typography>
             <Typography variant="subtitle2">
               <Link href={workplace.portfolio}>Перейти по ссылке</Link>
             </Typography>
